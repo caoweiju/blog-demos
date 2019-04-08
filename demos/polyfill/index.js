@@ -2,15 +2,34 @@
  * @Author: weiu.cao
  * @Date: 2019-04-08 18:08:19
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-04-08 18:22:20
+ * @Last Modified time: 2019-04-08 20:59:04
 */
 
-const ObjectAssign = function (targetObj, sourceObjs) {
-    if(typeof Object.prototype.assign === 'function') {
+const ObjectAssign = function () {
+    if(typeof Object.assign === 'function') {
         return true;
     }
-    if(targetObj && Object.prototype.call(targetObj) !== 'object Object') {
-        return 'cannt convert targetObj which isnot object type to Object type';
-    }
-    Object.defineProperty(Object, assign)
+    Object.defineProperty(Object, 'assign', {
+        configurable: true,
+        writable: true,
+        enumerable: false, // 默认 false 可以不写
+        value: function(targetObj, sourceObjs) {
+            if(targetObj && Object.prototype.toString.call(targetObj) !== '[object Object]') {
+                return 'cannt convert targetObj which isnot object type to Object type';
+            }
+            var newObj = new Object(targetObj),
+                index = 1,
+                argsLen = arguments.length;
+            while(--argsLen) {
+                var sourceObj = arguments[argsLen];
+                if(sourceObj && Object.prototype.toString.call(sourceObj) !== '[object Object]') {
+                   continue;
+                }
+                for(var key in sourceObj) {
+                    sourceObj.hasOwnProperty(key) && (newObj[key] = sourceObj[key]);
+                }
+            }
+            return newObj;
+        }
+    });
 }
