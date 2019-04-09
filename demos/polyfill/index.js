@@ -2,9 +2,12 @@
  * @Author: weiu.cao
  * @Date: 2019-04-08 18:08:19
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-04-08 20:59:04
+ * @Last Modified time: 2019-04-09 17:00:39
 */
 
+/**
+ * ObjectAssign polyfill
+ */
 const ObjectAssign = function () {
     if(typeof Object.assign === 'function') {
         return true;
@@ -32,4 +35,12 @@ const ObjectAssign = function () {
             return newObj;
         }
     });
+}
+
+/**
+ * bind函数实现
+ * @param {object} oThis 绑定的对象
+ */
+function functionBind(oThis) {
+
 }

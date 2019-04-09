@@ -14,3 +14,4 @@
 
 ## 实践
 1. `Object.assign`,通过`Object.defineProperty`追加进入`Object`对象中，是不可枚举，可以修改，且是浅拷贝操作
+2. `Function.prototype.bind`
