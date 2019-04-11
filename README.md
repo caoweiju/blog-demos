@@ -11,3 +11,5 @@
     * Object.assign
 
 3. `JavaScript`的节流和防抖函数实现
+    * `throttle`节流函数
+    * `debounce`防抖函数
