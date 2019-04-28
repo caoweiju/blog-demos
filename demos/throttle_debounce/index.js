@@ -2,7 +2,7 @@
  * @Author: weiu.cao
  * @Date: 2019-04-11 18:03:42
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-04-11 18:06:21
+ * @Last Modified time: 2019-04-28 10:40:20
 */
 
 /**
@@ -22,6 +22,8 @@ const throttle = (handerFn, timeout) => {
             handerFn.throttleId && clearTimeout(handerFn.debounceId);
             handerFn.debounceId = setTimeout(()=>{
                 last = _now;
+                // 要清楚这里的this指向 和使用节流函数的方式有关 
+                // jquery中可能指向e.currentTarget react中可能指向undefined或者component
                 handerFn.apply(this, args);
             }, timeout);
         } else {
@@ -76,6 +78,8 @@ const debounceFn = (handerFn, timeout=250) => {
     return function(...args) {
         handerFn.debounceId && clearTimeout(handerFn.debounceId);
         handerFn.debounceId = setTimeout(()=>{
+            // 要清楚这里的this指向 和使用节流函数的方式有关 
+            // jquery中可能指向e.currentTarget react中可能指向undefined或者component
             handerFn.apply(this, args);
         }, timeout);
     };
