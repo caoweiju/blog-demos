@@ -1,0 +1,24 @@
+{
+  "name": "blog-demos",
+  "version": "1.0.0",
+  "description": "这个仓库主要是包含[caoweiju个人博客](https://www.caoweiju.com/)中的一些示例代码；主要都是各种问题和解决方法的`demo`；",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caoweiju/blog-demos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caoweiju/blog-demos/issues"
+  },
+  "homepage": "https://github.com/caoweiju/blog-demos#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
