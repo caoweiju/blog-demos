@@ -2,7 +2,7 @@
  * @Author: weiu.cao
  * @Date: 2019-06-21 15:13:21
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-06-21 19:53:07
+ * @Last Modified time: 2019-06-21 21:16:21
 */
 'use strict';
 
@@ -14,7 +14,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import { LenContext } from "../../index.js";
+import { LanContext } from "../../index.js";
 import Item from '../item/index.js';
 
 var List = function (_React$Component) {
@@ -53,5 +53,6 @@ var List = function (_React$Component) {
     return List;
 }(React.Component);
 
-List.contextType = LenContext;
+List.contextType = LanContext;
+
 export default List;

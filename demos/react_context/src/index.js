@@ -2,11 +2,11 @@
  * @Author: weiu.cao
  * @Date: 2019-06-21 15:13:21
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-06-21 19:52:42
+ * @Last Modified time: 2019-06-21 21:19:49
 */
 'use strict';
 import List from './components/list/index.js';
-const initLenContext = {
+const initLanContext = {
         chLan: 'ch',
         enLan: 'en',
         listOne: [
@@ -53,12 +53,15 @@ const initLenContext = {
         ]
     };
 
-export const LenContext = React.createContext({list: initLenContext.listOne, currLan: initLenContext.chLan}); // 默认值：只有没有匹配的context的时候才生效 provider传递空值是不生效
+export const LanContext = React.createContext({
+    list: initLanContext.listOne,
+    currLan: initLanContext.chLan
+}); // 默认值：只有没有匹配的context的时候才生效 provider传递空值是不生效
 
 class App extends React.Component {
     state = {
-        list: initLenContext.listTwo,
-        currLan: initLenContext.chLan,
+        list: initLanContext.listTwo,
+        currLan: initLanContext.chLan,
     }
     constructor(props) {
         super(props);
@@ -71,9 +74,9 @@ class App extends React.Component {
     render() {
         const {list, currLan} = this.state;
         return (
-        <LenContext.Provider value={{list, currLan}}>
+        <LanContext.Provider value={{list, currLan}}>
             <List changCurreLan={this.changCurreLan} />
-        </LenContext.Provider>
+        </LanContext.Provider>
         );
     }
 }

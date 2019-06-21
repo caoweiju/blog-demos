@@ -2,7 +2,7 @@
  * @Author: weiu.cao
  * @Date: 2019-06-21 15:13:21
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-06-21 17:00:13
+ * @Last Modified time: 2019-06-21 21:15:44
 */
 'use strict';
 
@@ -15,17 +15,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import Text from '../text/index.js';
+import { LanContext } from "../../index.js";
 
-var App = function (_React$Component) {
-    _inherits(App, _React$Component);
+var Item = function (_React$Component) {
+    _inherits(Item, _React$Component);
 
-    function App(props) {
-        _classCallCheck(this, App);
+    function Item(props) {
+        _classCallCheck(this, Item);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+        return _possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
     }
+    // static contextType = LanContext;
 
-    _createClass(App, [{
+
+    _createClass(Item, [{
         key: 'render',
         value: function render() {
             var data = this.context,
@@ -35,19 +38,22 @@ var App = function (_React$Component) {
                 _ref$currLan = _ref.currLan,
                 currLan = _ref$currLan === undefined ? '' : _ref$currLan,
                 _props = props,
-                index = _props.index;
+                index = _props.index,
+                item = list[index],
+                currTxt = item[currLan];
 
 
             return React.createElement(
                 'div',
                 { className: 'm-home-item' },
-                React.createElement(Text, null)
+                React.createElement(Text, { txt: currTxt, index: index })
             );
         }
     }]);
 
-    return App;
+    return Item;
 }(React.Component);
 
-App.contextType = LenContext;
-export default App;
+Item.contextType = LanContext;
+
+export default Item;

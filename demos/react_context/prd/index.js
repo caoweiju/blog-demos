@@ -2,7 +2,7 @@
  * @Author: weiu.cao
  * @Date: 2019-06-21 15:13:21
  * @Last Modified by: weiju.cao
- * @Last Modified time: 2019-06-21 19:52:42
+ * @Last Modified time: 2019-06-21 21:19:49
 */
 'use strict';
 
@@ -15,7 +15,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import List from './components/list/index.js';
-var initLenContext = {
+var initLanContext = {
     chLan: 'ch',
     enLan: 'en',
     listOne: [{
@@ -50,7 +50,10 @@ var initLenContext = {
     }]
 };
 
-export var LenContext = React.createContext({ list: initLenContext.listOne, currLan: initLenContext.chLan }); // 默认值：只有没有匹配的context的时候才生效 provider传递空值是不生效
+export var LanContext = React.createContext({
+    list: initLanContext.listOne,
+    currLan: initLanContext.chLan
+}); // 默认值：只有没有匹配的context的时候才生效 provider传递空值是不生效
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -61,8 +64,8 @@ var App = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            list: initLenContext.listTwo,
-            currLan: initLenContext.chLan
+            list: initLanContext.listTwo,
+            currLan: initLanContext.chLan
         };
 
         _this.changCurreLan = _this.changCurreLan.bind(_this);
@@ -84,7 +87,7 @@ var App = function (_React$Component) {
                 currLan = _state.currLan;
 
             return React.createElement(
-                LenContext.Provider,
+                LanContext.Provider,
                 { value: { list: list, currLan: currLan } },
                 React.createElement(List, { changCurreLan: this.changCurreLan })
             );
